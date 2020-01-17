@@ -12,7 +12,7 @@
       var myLatLng = {lat: <%= @place.latitude %>, lng: <%= @place.longitude %>};
 
       var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 15,
+        zoom: 18,
         center: myLatLng
       });
 
@@ -46,10 +46,6 @@
 <br />
 
 <div class="booyah-box">
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-  Add a comment
-</button>
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -75,11 +71,21 @@
   </div>
 </div>
 
+<h1 class="float-left">Comments</h1>
 
-<h1>Comments</h1>
+<div class="col-10 offset-1"
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary btn-lg float-right" data-toggle="modal" data-target="#myModal">
+    Add a comment
+  </button>
+<div/>
 <br />
+
+<div class="clear">
+
+<div class="row">
 <% @place.comments.each do |comment| %>
-  <div>
+  <div class="col-12">
     <blockquote>
       <% if comment.humanized_rating.present? %>
         <b><%= comment.humanized_rating %></b> -
@@ -90,4 +96,5 @@
     </blockquote>
   </div>
 <% end %>
+<div />
 <div />
